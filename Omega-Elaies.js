@@ -1,11 +1,4 @@
-  
-
-<header style="text-align: center;"><h1>
-Используйте консоль браузера для того ,чтобы посчитать код Омега Элайеса.<br> omega(n)</h1>
-</header>
-
-
-<script>
+ 
   
 
   function  dec_to_bin(x) {
@@ -180,4 +173,4 @@ else return "Не существует"; }
 
 
 
-</script>
+
