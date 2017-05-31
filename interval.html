@@ -1,0 +1,92 @@
+ <header style="text-align: center;"><h1>
+GammaEl(n,k), где n число ,а k степень двойки .<br> decode([n]) (Значения вводятся в консоли).</h1>
+</header>
+
+<p>
+Гамма-код Элиаса — это универсальный код для кодирования положительных целых чисел, разработанный Питером Элиасом. Он обычно используется при кодировании целых чисел, максимальное значение которых не может быть определено заранее.
+</p>
+<img src="images/interval.png" style="width:200px" alt="interval coding" />
+<br>
+
+
+
+
+<script>
+
+function deunar(n){
+
+	result = (new Array(n+1).join(0) + 1);
+	return result;
+}
+ function toDEC( dec ) {
+    var out = 0, len = dec.length, bit = 1;
+    while( len-- ) {
+        out += dec[ len ] == "1" ? bit : 0;
+        bit <<= 1;
+    }
+    return out;
+}
+
+ function  dec_to_bin(x) {
+    var bin = "";
+     do { 
+        bin =    (x % 2)  + bin ;
+         } 
+        while ((x >>= 1) > 0);
+    return bin ;
+}
+
+ 
+function GammaEl(a,k){
+    var ar=[0,0,0,0,0,0,0,0,0,0];
+    var arr=[];
+    a= a-Math.pow(2,k);
+    arr= [dec_to_bin(a)];
+    nameL = arr.map(function(size){
+      return size.length; });
+    ar.length = (k - nameL[0]);
+    ar.push(dec_to_bin(a));
+
+
+    k=deunar(k);
+    return k+ar;
+}
+ 
+
+function decode(){
+  var n = Array.from(arguments);
+  var q= 0;
+
+
+  for (var i=0; i < n.length; i++){
+    if (n[i]==1) break;{
+      q++;
+       
+    }
+  }
+  r =  q +1;
+  n.reverse();
+  n.length = n.length- r;
+  n.reverse().join('');
+  n=toDEC(n);
+  n = Math.pow(2,q) + n;
+  return n;
+
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
